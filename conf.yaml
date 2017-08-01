@@ -1,0 +1,8 @@
+host: 0.0.0.0
+port: 8080
+mongo:
+  uri: mongodb://srv-2.yottos.com:27017/getmyad?maxPoolSize=200&w=0
+  db: getmyad
+  collection:
+    offer: log.impressions
+    block: log.impressions.block
