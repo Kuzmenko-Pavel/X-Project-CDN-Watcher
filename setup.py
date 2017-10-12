@@ -25,7 +25,9 @@ install_requires = ['aiohttp',
                     'motor',
                     'pytz',
                     'uvloop',
-                    'asynqp'
+                    'asynqp',
+                    'requests',
+                    'python-magic'
                     ]
 
 setup(
