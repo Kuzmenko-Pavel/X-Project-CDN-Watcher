@@ -65,7 +65,7 @@ def init(loop, argv):
     config['socket'] = options.socket
     app = web.Application(loop=loop)
     app['config'] = config
-    # app.on_startup.append(init_db)
+    app.on_startup.append(init_db)
     app.on_startup.append(start_background_listener)
     setup_routes(app)
     setup_middlewares(app)

@@ -42,7 +42,8 @@ def error_pages(overrides):
 
 
 def setup_middlewares(app):
-    error_middleware = error_pages({404: handle_404,
-                                    405: handle_405,
-                                    500: handle_500})
-    app.middlewares.append(error_middleware)
+    pass
+    # error_middleware = error_pages({404: handle_404,
+    #                                 405: handle_405,
+    #                                 500: handle_500})
+    # app.middlewares.append(error_middleware)
