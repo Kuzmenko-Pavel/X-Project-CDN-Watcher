@@ -1,4 +1,5 @@
 from aiohttp import hdrs, web
+from aiohttp.web import middleware
 import gridfs
 import time
 from datetime import datetime, timedelta
@@ -7,7 +8,7 @@ from x_project_cdn_watcher.logger import logger, exception_message
 
 
 async def handle_404(request, response):
-    return web.HTTPNotFound(text=request.path)
+    return web.HTTPNotFound(text='')
 
 
 async def handle_405(request, response):
@@ -45,8 +46,20 @@ def error_pages(overrides):
     return middleware
 
 
+@middleware
+async def authentication_middlewares(request, handler):
+    headers = request.headers
+    token = request.app['config']['token']
+    access_token = headers.get('X-Authentication', '')
+    if token != access_token and request.method == 'POST':
+        raise web.HTTPForbidden()
+    response = await handler(request)
+    return response
+
+
 def setup_middlewares(app):
     error_middleware = error_pages({404: handle_404,
                                     405: handle_405,
                                     500: handle_500})
+    # app.middlewares.append(authentication_middlewares)
     app.middlewares.append(error_middleware)

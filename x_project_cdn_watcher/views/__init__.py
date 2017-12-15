@@ -1,3 +1,4 @@
-from .api import ApiView
+__all__ = ['ApiFileStorageView']
 
-__all__ = [ApiView, ]
+from .api import ApiView
+from .api_file_storage import ApiFileStorageView
