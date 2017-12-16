@@ -1,7 +1,7 @@
 host: 0.0.0.0
 port: 8080
 token: f9bf78b9a18ce6d46a0cd2b0b86df9da
-store_directory: /home/kuzmenko-pavel/test_upload/
+store_directory: /var/lib/mongodb/cdn.yottos/
 mongo:
   uri: mongodb://srv-10.yottos.com:27017,srv-11.yottos.com:27017,srv-12.yottos.com:27017/cdn?replicaSet=cdn1&maxPoolSize=200
   db: cdn

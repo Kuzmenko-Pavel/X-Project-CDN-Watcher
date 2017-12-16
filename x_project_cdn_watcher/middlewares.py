@@ -61,5 +61,5 @@ def setup_middlewares(app):
     error_middleware = error_pages({404: handle_404,
                                     405: handle_405,
                                     500: handle_500})
-    # app.middlewares.append(authentication_middlewares)
+    app.middlewares.append(authentication_middlewares)
     app.middlewares.append(error_middleware)

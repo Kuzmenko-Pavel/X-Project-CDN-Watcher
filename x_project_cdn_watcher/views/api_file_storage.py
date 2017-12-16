@@ -10,10 +10,10 @@ class ApiFileStorageView(web.View):
         store_directory = self.request.app['config']['store_directory']
         tail = self.request.match_info['tail']
         path = os.path.join(store_directory, tail)
+        path_name = os.path.basename(path)
         directory = os.path.dirname(path)
         reader = await self.request.multipart()
         file = await reader.next()
-        filename = file.filename
         size = 0
         if not self.request.app['ls'].get(directory, False):
             os.makedirs(directory, exist_ok=True)
@@ -27,4 +27,4 @@ class ApiFileStorageView(web.View):
                 f.write(chunk)
 
             return web.Response(text='{} sized of {} successfully stored'
-                                     ''.format(filename, size))
+                                     ''.format(path_name, size))
