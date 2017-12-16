@@ -8,9 +8,9 @@ primitive_ip_regexp = r'^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$'
 store_directory = r'^/.*/$'
 
 TRAFARET_CONF = T.Dict({
-    T.Key('host'): T.String(regex=primitive_ip_regexp),
+    T.Key('host'): T.Regexp(primitive_ip_regexp),
     T.Key('token'): T.String(),
-    T.Key('store_directory'): T.String(regex=store_directory),
+    T.Key('store_directory'): T.Regexp(store_directory),
     T.Key('port'): T.Int(),
     T.Key('mongo'): T.Any
 })
