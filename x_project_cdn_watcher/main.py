@@ -8,8 +8,6 @@ from aiohttp import web
 from trafaret_config import commandline
 
 from x_project_cdn_watcher.logger import logger, exception_message
-# from x_project_cdn_watcher.background import start_background_listener
-# from x_project_cdn_watcher.db import init_db
 from x_project_cdn_watcher.middlewares import setup_middlewares
 from x_project_cdn_watcher.routes import setup_routes
 from x_project_cdn_watcher.utils import TRAFARET_CONF
@@ -30,8 +28,6 @@ def init(loop, argv):
     app = web.Application(loop=loop)
     app['config'] = config
     app['ls'] = {}
-    # app.on_startup.append(init_db)
-    # app.on_startup.append(start_background_listener)
     setup_routes(app)
     setup_middlewares(app)
 

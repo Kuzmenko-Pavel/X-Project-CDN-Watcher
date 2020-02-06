@@ -188,3 +188,4 @@ wheels/
 [Ss]cripts
 pyvenv.cfg
 pip-selfcheck.json
+/tools/t/

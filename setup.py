@@ -18,14 +18,12 @@ def read_version():
             raise RuntimeError(msg)
 
 
-install_requires = ['aiohttp',
-                    'aiodns',
+install_requires = ['aiohttp==2.3.10',
+                    'aiodns==2.0.0',
                     'ujson',
                     'trafaret-config',
-                    'motor',
                     'pytz',
-                    'uvloop',
-                    'asynqp',
+                    'uvloop==0.13.0',
                     'requests',
                     'python-magic'
                     ]

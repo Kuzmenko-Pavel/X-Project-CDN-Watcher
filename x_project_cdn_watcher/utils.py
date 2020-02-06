@@ -12,7 +12,7 @@ TRAFARET_CONF = T.Dict({
     T.Key('token'): T.String(),
     T.Key('store_directory'): T.Regexp(store_directory),
     T.Key('port'): T.Int(),
-    T.Key('mongo'): T.Any
+    # T.Key('mongo'): T.Any
 })
 
 

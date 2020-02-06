@@ -51,7 +51,9 @@ async def authentication_middlewares(request, handler):
     headers = request.headers
     token = request.app['config']['token']
     access_token = headers.get('X-Authentication', '')
-    if token != access_token and request.method == 'POST':
+    if token != access_token and request.method in ['POST', 'DELETE', 'PUT']:
+        raise web.HTTPForbidden()
+    if request.content_type != 'multipart/form-data' and request.method in ['POST', 'PUT']:
         raise web.HTTPForbidden()
     response = await handler(request)
     return response
