@@ -18,7 +18,7 @@ def read_version():
             raise RuntimeError(msg)
 
 
-install_requires = ['aiohttp==2.3.10',
+install_requires = ['aiohttp==3.7.4',
                     'aiodns==2.0.0',
                     'ujson',
                     'trafaret-config',
